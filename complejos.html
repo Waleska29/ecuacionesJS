@@ -51,44 +51,7 @@
 
     <section style="margin-top: 5em;">
       <div class="card-deck">
-        <div class="card">
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/1307/1307867.svg"
-            height="250 px"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Ecuaciones Lineales</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="lineales.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/3299/3299986.svg"
-            height="250 px"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Ecuaciones Cuadraticas</h5>
-            <p class="card-text">
-              This card has supporting text below as a natural lead-in to
-              additional content. <br>
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="cuadraticas.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
-        </div>
-        </div>
-        <div class="card">
+        <div class="card text-center">
           <img
             src="https://www.flaticon.com/svg/static/icons/svg/3074/3074046.svg"
             height="250 px"
@@ -101,16 +64,41 @@
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This card has even longer content
               than the first to show that equal height action.
+              <p> 2 + 3i </p>
+              <p>4 - 2i</p>
             </p>
           </div>
           <div class="card-footer">
-            <a href="complejos.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
+            <a
+              onclick="sumarComplejos()"
+              class="btn btn-block btn-lg btn-outline-success"
+            >
+              Sumar 2 numeros complejos</a
+            >
+            <a
+              onclick="restarComplejos()"
+              class="btn btn-block btn-lg btn-outline-danger"
+            >
+              Restar 2 numeros complejos</a
+            >
+            <a
+              onclick="multComplejos()"
+              class="btn btn-block btn-lg btn-outline-primary"
+            >
+              Multiplicar 2 numeros complejos</a
+            >
+            <a
+              onclick="divComplejos()"
+              class="btn btn-block btn-lg btn-outline-warning"
+            >
+              Dividir 2 numeros complejos</a
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <footer>
+    <footer class="mt-5">
       <nav class="navbar fixed-bottom navbar-dark bg-info">
         <a class="navbar-brand" href="#">Ana Waleska Estrada Paíz</a>
       </nav>
@@ -133,5 +121,53 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+
+    <script
+      src="https://pagecdn.io/lib/mathjs/7.1.0/math.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function sumarComplejos() {
+        var n1 = prompt("ingrese el primer numero complejo");
+        var n2 = prompt("ingrese el segundo numero complejo");
+        const a = math.complex(n1); // Complex 2 + 3i
+        const b = math.complex(n2); // Complex 4 - 2i
+        math.add(a, b); // Complex 6 + i
+        console.log(math.add(a, b));
+        alert(math.add(a,b));
+      }
+
+      function restarComplejos() {
+        var n1 = prompt("ingrese el primer numero complejo");
+        var n2 = prompt("ingrese el segundo numero complejo");
+        const a = math.complex(n1); // Complex 2 + 3i
+        const b = math.complex(n2); // Complex 4 - 2i
+        math.subtract(a, b); // Complex 6 + i
+        console.log(math.subtract(a, b));
+        alert(math.subtract(a, b));
+      }
+
+      function multComplejos() {
+        var n1 = prompt("ingrese el primer numero complejo");
+        var n2 = prompt("ingrese el segundo numero complejo");
+        const a = math.complex(n1); // Complex 2 + 3i
+        const b = math.complex(n2); // Complex 4 - 2i
+        math.multiply(a, b); // Complex 6 + i
+        console.log(math.multiply(a, b));
+        alert(math.multiply(a, b));
+      }
+
+      function divComplejos() {
+        var n1 = prompt("ingrese el primer numero complejo");
+        var n2 = prompt("ingrese el segundo numero complejo");
+        const a = math.complex(n1); // Complex 2 + 3i
+        const b = math.complex(n2); // Complex 4 - 2i
+        math.divide(a, b); // Complex 6 + i
+        console.log(math.divide(a, b));
+        alert(math.divide(a, b));
+      }
+
+      
+    </script>
   </body>
 </html>
