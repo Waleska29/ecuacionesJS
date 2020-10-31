@@ -20,7 +20,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-      <a class="navbar-brand" href="#">Menú</a>
+      <a class="navbar-brand" href="index.html">Menú</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -51,7 +51,7 @@
 
     <section style="margin-top: 5em;">
       <div class="card-deck">
-        <div class="card">
+        <div class="card text-center">
           <img
             src="https://www.flaticon.com/svg/static/icons/svg/1307/1307867.svg"
             height="250 px"
@@ -61,50 +61,18 @@
           <div class="card-body">
             <h5 class="card-title">Ecuaciones Lineales</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              ejemplo
             </p>
+            <p><strong>x^2 + 17/4x - 15/4 = 0
+              x = -5,3/4</strong></p>
           </div>
           <div class="card-footer">
-            <a href="lineales.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/3299/3299986.svg"
-            height="250 px"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Ecuaciones Cuadraticas</h5>
-            <p class="card-text">
-              This card has supporting text below as a natural lead-in to
-              additional content. <br>
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="cuadraticas.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
-        </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/3074/3074046.svg"
-            height="250 px"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Numeros Complejos</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="complejos.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
+            <a
+              onclick="ecuacionLineal()"
+              class="btn btn-block btn-lg btn-outline-primary"
+            >
+              Ingresar datos de la ecuacion</a
+            >
           </div>
         </div>
       </div>
@@ -133,5 +101,53 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="algebra-0.2.6.min.js"></script>
+    <script>
+      function ecuacionLineal() {
+        //una variable
+        var Fraction = algebra.Fraction;
+        var Expression = algebra.Expression;
+        var Equation = algebra.Equation;
+
+        //Solicita los valores al usuario
+        let expresionIzquierda = prompt(
+          "Ingrese la expresion del lado izquierdo del signo igual (=) "
+        );
+        let expresionDerecha = prompt(
+          "Ingrese la expresion del lado derecho del signo igual (=) "
+        );
+
+        var x1 = algebra.parse(expresionIzquierda);
+        var x2 = algebra.parse(expresionDerecha);
+
+        var eq = new Equation(x1, x2);
+        console.log(eq.toString());
+
+        var answer = eq.solveFor("x");
+
+        console.log("x = " + answer.toString());
+        alert("x = " + answer.toString());
+      }
+
+      function ecuacionDosVar() {
+
+        var Fraction = algebra.Fraction;
+        var Expression = algebra.Expression;
+        var Equation = algebra.Equation;
+        //multiples variables
+        var expr1 = algebra.parse("1/4 * x + 5/4");
+        var expr2 = algebra.parse("3 * y - 12/5");
+
+        var eq = new Equation(expr1, expr2);
+
+        console.log(eq.toString());
+
+        var xAnswer = eq.solveFor("x");
+        var yAnswer = eq.solveFor("y");
+
+        console.log("x = " + xAnswer.toString());
+        console.log("y = " + yAnswer.toString());
+      }
+    </script>
   </body>
 </html>
