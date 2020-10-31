@@ -50,31 +50,7 @@
     </nav>
 
     <section style="margin-top: 5em;">
-      <div class="card-deck">
-        <div class="card">
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/1307/1307867.svg"
-            height="250 px"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Ecuaciones Lineales</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a
-              href="lineales.html"
-              class="btn btn-block btn-lg btn-outline-primary"
-            >
-              Ir a</a
-            >
-          </div>
-        </div>
+      <div class="card-deck text-center">
         <div class="card">
           <img
             src="https://www.flaticon.com/svg/static/icons/svg/3299/3299986.svg"
@@ -91,34 +67,10 @@
           </div>
           <div class="card-footer">
             <a
-              href="cuadraticas.html"
+              onclick="formulaCuadratica()"
               class="btn btn-block btn-lg btn-outline-primary"
             >
-              Ir a</a
-            >
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://www.flaticon.com/svg/static/icons/svg/3074/3074046.svg"
-            height="250 px"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Numeros Complejos</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a
-              href="complejos.html"
-              class="btn btn-block btn-lg btn-outline-primary"
-            >
-              Ir a</a
+              Calcular funcion cuadratica</a
             >
           </div>
         </div>
@@ -149,48 +101,58 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      //funcion principal para resolver con la ormula cuadratica
-      // program to solve quadratic equation
-      let root1, root2;
+      function formulaCuadratica() {
+        //funcion principal para resolver con la formula cuadratica
+        let raiz1, raiz2;
 
-      // take input from the user
-      let a = prompt("Enter the first number: ");
-      let b = prompt("Enter the second number: ");
-      let c = prompt("Enter the third number: ");
+        // Solicita al usuario los coeficientes de la epresión álgebraica
+        let a = prompt("Ingrese el primer Numero: ");
+        let b = prompt("Ingrese el segundo Numero:");
+        let c = prompt("Ingrese el tercer Numero: ");
 
-      // calculate discriminant
-      let discriminant = b * b - 4 * a * c;
+        // Realiza el calculo de la discriminante
+        let discrimiante = b * b - 4 * a * c;
 
-      // condition for real and different roots
-      if (discriminant > 0) {
-        root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-        root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        //Realiza la condicion para reales y raices diferentes
+        if (discrimiante > 0) {
+          raiz1 = (-b + Math.sqrt(discrimiante)) / (2 * a);
+          raiz2 = (-b - Math.sqrt(discrimiante)) / (2 * a);
 
-        // result
-        console.log(
-          `The roots of quadratic equation are ${root1} and ${root2}`
-        );
-      }
+          // resultado
+          console.log(
+            `Las raices de la ecuacion cuadratica son: ${raiz1} y ${raiz2}`
+          );
+          alert(
+            `Las raices de la ecuacion cuadratica son: ${raiz1} y ${raiz2}`
+          );
+        }
 
-      // condition for real and equal roots
-      else if (discriminant == 0) {
-        root1 = root2 = -b / (2 * a);
+        //Realiza la condicion para reales y raices diferentes
+        else if (discrimiante == 0) {
+          raiz1 = raiz2 = -b / (2 * a);
 
-        // result
-        console.log(
-          `The roots of quadratic equation are ${root1} and ${root2}`
-        );
-      }
+          // resultado
+          console.log(
+            `Las raices de la ecuacion cuadratica son: ${raiz1} y ${raiz2}`
+          );
+          alert(
+            `Las raices de la ecuacion cuadratica son: ${raiz1} y ${raiz2}`
+          );
+        }
 
-      // if roots are not real
-      else {
-        let realPart = (-b / (2 * a)).toFixed(2);
-        let imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(2);
+        // Las raices no son reales
+        else {
+          let parteReal = (-b / (2 * a)).toFixed(2);
+          let parteImaginaria = (Math.sqrt(-discrimiante) / (2 * a)).toFixed(2);
 
-        // result
-        console.log(
-          `The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`
-        );
+          // resultado
+          console.log(
+            `Las raices de la ecuacion cuadratica son: ${parteReal} + ${parteImaginaria}i y ${parteReal} - ${parteImaginaria}i`
+          );
+          alert(
+            `Las raices de la ecuacion cuadratica son: ${parteReal} + ${parteImaginaria}i y ${parteReal} - ${parteImaginaria}i`
+          );
+        }
       }
     </script>
   </body>
