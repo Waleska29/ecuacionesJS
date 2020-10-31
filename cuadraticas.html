@@ -67,7 +67,12 @@
             </p>
           </div>
           <div class="card-footer">
-            <a href="lineales.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
+            <a
+              href="lineales.html"
+              class="btn btn-block btn-lg btn-outline-primary"
+            >
+              Ir a</a
+            >
           </div>
         </div>
         <div class="card">
@@ -81,12 +86,17 @@
             <h5 class="card-title">Ecuaciones Cuadraticas</h5>
             <p class="card-text">
               This card has supporting text below as a natural lead-in to
-              additional content. <br>
+              additional content. <br />
             </p>
           </div>
           <div class="card-footer">
-            <a href="cuadraticas.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
-        </div>
+            <a
+              href="cuadraticas.html"
+              class="btn btn-block btn-lg btn-outline-primary"
+            >
+              Ir a</a
+            >
+          </div>
         </div>
         <div class="card">
           <img
@@ -104,7 +114,12 @@
             </p>
           </div>
           <div class="card-footer">
-            <a href="complejos.html" class="btn btn-block btn-lg btn-outline-primary"> Ir a</a>
+            <a
+              href="complejos.html"
+              class="btn btn-block btn-lg btn-outline-primary"
+            >
+              Ir a</a
+            >
           </div>
         </div>
       </div>
@@ -133,5 +148,50 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script>
+      //funcion principal para resolver con la ormula cuadratica
+      // program to solve quadratic equation
+      let root1, root2;
+
+      // take input from the user
+      let a = prompt("Enter the first number: ");
+      let b = prompt("Enter the second number: ");
+      let c = prompt("Enter the third number: ");
+
+      // calculate discriminant
+      let discriminant = b * b - 4 * a * c;
+
+      // condition for real and different roots
+      if (discriminant > 0) {
+        root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+        // result
+        console.log(
+          `The roots of quadratic equation are ${root1} and ${root2}`
+        );
+      }
+
+      // condition for real and equal roots
+      else if (discriminant == 0) {
+        root1 = root2 = -b / (2 * a);
+
+        // result
+        console.log(
+          `The roots of quadratic equation are ${root1} and ${root2}`
+        );
+      }
+
+      // if roots are not real
+      else {
+        let realPart = (-b / (2 * a)).toFixed(2);
+        let imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(2);
+
+        // result
+        console.log(
+          `The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`
+        );
+      }
+    </script>
   </body>
 </html>
